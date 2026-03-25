@@ -109,3 +109,35 @@ class PlaceProfitability(BaseModel):
     location: str
     total_revenue: float
     total_moves: int
+
+# 👇 НОВАЯ СХЕМА ДЛЯ ЗАДАНИЯ 9 (ПРОСТОЙ УРОВЕНЬ)
+class PremiumExponat(BaseModel):
+    """Схема для отображения дорогого экспоната (задание 9)"""
+    move_id: int
+    wing_name: str
+    type_name: str
+    price: float
+
+    class Config:
+        from_attributes = True
+
+# 👇 НОВАЯ СХЕМА ДЛЯ ПРОДВИНУТОГО УРОВНЯ (СПб)
+class PlaceAboveAverage(BaseModel):
+    """Схема для площадок в СПб с масштабом выше среднего"""
+    place_id: int
+    location: str
+    scale: float
+    average_scale: Optional[float] = None  # средний масштаб для сравнения
+
+    class Config:
+        from_attributes = True
+
+# 👇 НОВАЯ СХЕМА ДЛЯ ПРОСТОГО УРОВНЯ (СПб без фильтра)
+class SpbPlace(BaseModel):
+    """Схема для площадок в Санкт-Петербурге (простой уровень)"""
+    place_id: int
+    location: str
+    scale: float
+
+    class Config:
+        from_attributes = True
